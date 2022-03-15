@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "file",
+      "type": "br.com.erudio.config.FileStorageConfig",
+      "sourceType": "br.com.erudio.config.FileStorageConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "file.upload-dir",
+      "type": "java.lang.String",
+      "sourceType": "br.com.erudio.config.FileStorageConfig"
+    }
+  ],
+  "hints": []
+}
