@@ -24,5 +24,6 @@ public class Startup {
 		String result = bCryptPasswordEncoder.encode("password");
 		System.out.println("My hash " + result);
 		*/
+		System.out.println("http://localhost:8080/swagger-ui.html");
 	}
 }
