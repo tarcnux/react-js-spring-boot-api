@@ -9,7 +9,7 @@ export default function Login() {
                 <section className="form">
                 <img src={logoImage} alt="TNX Logo" />
                     <form>
-                        <h1>Access your Account</h1>
+                        <h1>Acessar sua conta</h1>
                         <input type="text" placeholder="Username"/>
                         <input type="password" placeholder="Password" />
 
