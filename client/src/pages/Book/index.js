@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiPower } from 'react-icons/fi'; //https://feathericons.com/?query=power
+import { FiPower, FiEdit, FiTrash2 } from 'react-icons/fi'; //https://feathericons.com/
 
 import './styles.css';
 
@@ -17,6 +17,84 @@ export default function Book() {
                     <FiPower size={18} color="#251fc5" />
                </button>
            </header>
+           <h1>Livros cadastrados</h1>
+           <ul>
+               <li>
+                   <strong>Título:</strong>
+                   <p>Docker Deep Dive</p>
+                   <strong>Autor:</strong>
+                   <p>Nigel Poulton</p>
+                   <strong>Preço:</strong>
+                   <p>R$ 47,90</p>
+                   <strong>Data de Lançamento:</strong>
+                   <p>18/03/2022</p>
+
+                   <button>
+                        <FiEdit size={18} color="#251fc5" />
+                   </button>
+
+                   <button>
+                        <FiTrash2 size={18} color="#251fc5" />
+                   </button>
+               </li>
+
+               <li>
+                   <strong>Título:</strong>
+                   <p>Docker Deep Dive</p>
+                   <strong>Autor:</strong>
+                   <p>Nigel Poulton</p>
+                   <strong>Preço:</strong>
+                   <p>R$ 47,90</p>
+                   <strong>Data de Lançamento:</strong>
+                   <p>18/03/2022</p>
+
+                   <button>
+                        <FiEdit size={18} color="#251fc5" />
+                   </button>
+
+                   <button>
+                        <FiTrash2 size={18} color="#251fc5" />
+                   </button>
+               </li>
+
+               <li>
+                   <strong>Título:</strong>
+                   <p>Docker Deep Dive</p>
+                   <strong>Autor:</strong>
+                   <p>Nigel Poulton</p>
+                   <strong>Preço:</strong>
+                   <p>R$ 47,90</p>
+                   <strong>Data de Lançamento:</strong>
+                   <p>18/03/2022</p>
+
+                   <button>
+                        <FiEdit size={18} color="#251fc5" />
+                   </button>
+
+                   <button>
+                        <FiTrash2 size={18} color="#251fc5" />
+                   </button>
+               </li>
+
+               <li>
+                   <strong>Título:</strong>
+                   <p>Docker Deep Dive</p>
+                   <strong>Autor:</strong>
+                   <p>Nigel Poulton</p>
+                   <strong>Preço:</strong>
+                   <p>R$ 47,90</p>
+                   <strong>Data de Lançamento:</strong>
+                   <p>18/03/2022</p>
+
+                   <button>
+                        <FiEdit size={18} color="#251fc5" />
+                   </button>
+
+                   <button>
+                        <FiTrash2 size={18} color="#251fc5" />
+                   </button>
+               </li>
+           </ul>
        </div>
     )
 }
