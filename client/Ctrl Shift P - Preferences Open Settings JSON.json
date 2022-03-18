@@ -1,0 +1,14 @@
+{
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "material-icon-theme",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+
+    "editor.fontSize": 14,
+    "editor.fontFamily": "Fira Code",
+
+    "emmet.syntaxProfiles": {"javascript": "jsx"},
+    "emmet.includeLanguages": {"javascript": "javascriptreact"},
+
+    "terminal.integrated.fontSize": 15,
+    "workbench.startupEditor": "newUntitledFile",
+}
