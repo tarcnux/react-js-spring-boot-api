@@ -9,12 +9,15 @@ import logoImage from '../../assets/logo.png';
 
 export default function NewBook() {
 
-    const [id, setId] = useState(null);
+    //const [id, setId] = useState(null);
     const [author, setAuthor] = useState('');
     const [launchDate, setLaunchDate] = useState('');
     const [price, setPrice] = useState('');
     const [title, setTitle] = useState('');
 
+    //Recuperar access token do LocalStorage
+    //const username = localStorage.getItem('username');
+    const accessToken = localStorage.getItem('accessToken');
     const history = useHistory();
 
     async function createNewBook(e) {
@@ -23,11 +26,7 @@ export default function NewBook() {
         const data = {
             title, author, launchDate, price,
         };
-
-        //Recuperar access token do LocalStorage
-        //const username = localStorage.getItem('username');
-        const accessToken = localStorage.getItem('accessToken');
-
+        
         const header = {                        
             headers: {
                 Authorization: `Bearer ${accessToken}`
