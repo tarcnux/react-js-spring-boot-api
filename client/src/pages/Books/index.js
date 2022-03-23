@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
-//import { Link, useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FiPower, FiEdit, FiTrash2 } from 'react-icons/fi'; //https://feathericons.com/
 
 import api from '../../services/api';
@@ -16,17 +15,42 @@ export default function Books() {
     //Recuperar access token do LocalStorage
     const username = localStorage.getItem('username');
     const accessToken = localStorage.getItem('accessToken');
-    //const history = useHistory();
-    const header = {                        
-          headers: {
-          Authorization: `Bearer ${accessToken}`
+    const history = useHistory();
+  
+    async function logout() {
+         console.log('Saindo ...');
+         localStorage.clear();
+         history.push('/')
+    }
+    
+    async function deleteBook(id) {
+     console.log(`Excluíndo livro ${id}...`);
+          try {
+               await api.delete(`api/book/v1/${id}`, {                        
+                    headers: {
+                    Authorization: `Bearer ${accessToken}`
+                    }
+               });
+
+               setBooks(books.filter(book => book.id !== id));
+          } catch(err) {
+               alert('Não foi possível apagar!');
           }
-     };
+     }
     
      //Carrega os dados no carregamento da tela
     useEffect(() => {
-          api.get('api/book/v1', header)
-          .then(response => {setBooks(response.data._embedded.bookVoes)});
+         console.log('Carregando livros');
+          api.get('api/book/v1', {                        
+               headers: {
+               Authorization: `Bearer ${accessToken}`
+               },
+               params: {
+                    page: 0,
+                    limit: 4,
+                    direction: 'asc'
+               }
+          }).then(response => {setBooks(response.data._embedded.bookVoes)});
     }, []);
 
     return (
@@ -35,7 +59,7 @@ export default function Books() {
                <img src={logoImage} alt="TNX Logo" />
                <span>Bem vindo, <strong>{username.toUpperCase()}</strong>!</span>
                <Link className="button" to="book/new">Adicionar novo livro</Link>
-               <button>
+               <button onClick={() => logout()}>
                     <FiPower size={18} color="#251fc5" />
                </button>
            </header>
@@ -56,7 +80,7 @@ export default function Books() {
                               <FiEdit size={18} color="#251fc5" />
                          </button>
      
-                         <button>
+                         <button onClick={() => deleteBook(book.id)}>
                               <FiTrash2 size={18} color="#251fc5" />
                          </button>
                     </li>

@@ -23,6 +23,7 @@ export default function Login() {
         };
 
         try {
+            console.log('Autenticando...');
             const response = await api.post('auth/signin', data);
             localStorage.setItem('username', username);
             localStorage.setItem('accessToken', response.data.token);
