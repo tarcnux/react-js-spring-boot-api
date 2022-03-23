@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FiPower, FiEdit, FiTrash2 } from 'react-icons/fi'; //https://feathericons.com/
 
 import api from '../../services/api';
@@ -16,17 +16,17 @@ export default function Books() {
     //Recuperar access token do LocalStorage
     const username = localStorage.getItem('username');
     const accessToken = localStorage.getItem('accessToken');
-    const history = useHistory();
+    const navigate = useNavigate();
   
     async function logout() {
          console.log('Saindo ...');
          localStorage.clear();
-         history.push('/')
+         navigate('/')
     }
     
     async function editBook(id) {
          try {
-               history.push(`book/new/${id}`);
+               navigate(`/book/new/${id}`);
          } catch(error) {
               alert(`Não foi possível editar o livro: ${id}`);
          }
@@ -80,7 +80,7 @@ export default function Books() {
            <header>
                <img src={logoImage} alt="TNX Logo" />
                <span>Bem vindo, <strong>{username.toUpperCase()}</strong>!</span>
-               <Link className="button" to="book/new/0">Adicionar novo livro</Link>
+               <Link className="button" to="/book/new/0">Adicionar novo livro</Link>
                <button onClick={() => logout()}>
                     <FiPower size={18} color="#251fc5" />
                </button>

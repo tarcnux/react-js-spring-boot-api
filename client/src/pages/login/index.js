@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './styles.css';
 
 import api from '../../services/api';
@@ -13,7 +13,7 @@ export default function Login() {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     async function login(e) {
         e.preventDefault();
@@ -28,7 +28,7 @@ export default function Login() {
             localStorage.setItem('username', username);
             localStorage.setItem('accessToken', response.data.token);
 
-            history.push('/books');
+            navigate('/books');
         } catch (err) {
             console.log('username: ' + username);
             console.log('password: ' + password);

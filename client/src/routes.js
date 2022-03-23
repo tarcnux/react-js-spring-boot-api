@@ -1,19 +1,19 @@
 
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Books from "./pages/Books";
 import NewBook from "./pages/NewBook";
 
 
-export default function Routes() {
+export default function AppRoutes() {
     return (
         <BrowserRouter>
-            <Switch>
-                <Route path="/" exact component={Login} />
-                <Route path="/books" component={Books} />
-                <Route path="/book/new/:bookId" component={NewBook} />
-            </Switch>
+            <Routes>
+                <Route path="/" exact element={<Login />} />
+                <Route path="/books" element={<Books />} />
+                <Route path="/book/new/:bookId" element={<NewBook />} />
+            </Routes>
         </BrowserRouter>
     );
 }

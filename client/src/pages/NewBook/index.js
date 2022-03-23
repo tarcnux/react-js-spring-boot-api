@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FiArrowLeft } from 'react-icons/fi';
 
 import api from '../../services/api';
@@ -21,6 +21,8 @@ export default function NewBook() {
     //Recuperar access token do LocalStorage
     //const username = localStorage.getItem('username');
     const accessToken = localStorage.getItem('accessToken');
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function loadBook(id){
@@ -44,15 +46,13 @@ export default function NewBook() {
 
             } catch(error) {
                 alert(`Erro ao tentar carregar o livro ${id}. Tente novamente!`);
-                history.push('/books');
+                navigate('/books');
             }
         };    
         
         loadBook();
         
     },[bookId]);
-
-    const history = useHistory();
 
     async function saveOrUpdate(e) {
         e.preventDefault();
@@ -76,7 +76,7 @@ export default function NewBook() {
                 await api.put('api/book/v1', data, header);
             }
 
-            history.push('/books');
+            navigate('/books');
 
         } catch (err) {
             alert('Erro ao tentar salvar o Livro. Tente novamente.');
